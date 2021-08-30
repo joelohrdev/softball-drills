@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Models\Category;
+use App\Models\Drill;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('show');
 
 require __DIR__.'/auth.php';
